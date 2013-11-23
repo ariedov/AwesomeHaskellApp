@@ -1,10 +1,10 @@
-solveQuadratic :: Float -> Float -> Float -> (Float, Float)
+solveQuadratic :: (Num a, Fractional a, Floating a, Ord a) => a -> a -> a -> (a, a)
 solveQuadratic a b c = solve a b $ findD a b c
 
-findD :: Float -> Float -> Float -> Float
+findD :: (Num a, Fractional a, Floating a, Ord a) => a -> a -> a -> a
 findD a b c = (b^2) - (4 * a * c)
 
-solve :: Float -> Float -> Float -> (Float, Float)
+solve :: (Ord a, Num a, Fractional a, Floating a) => a -> a -> a -> (a, a)
 solve a b d
 	| d >= 0	= (x1, x2)
 	| d < 0		= error "There is no solution"
